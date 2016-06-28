@@ -10,7 +10,6 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-output*
 env/
 build/
 develop-eggs/
