@@ -26,6 +26,8 @@ def get_last_non_zero(seq):
         if seq[i] != 0:
             return i
         
+    return -1
+        
 def get_possible_chars(sequences, prev, alphabet):
     possible_chars = [char for char in alphabet if not any(prev + char in sequence for sequence in sequences)]
     lst = []
@@ -79,6 +81,9 @@ def de_bruijn_rotate_resistant(k, n):
         else:
             while not current:
                 idx = get_last_non_zero(flags)
+                if idx == -1:
+                    return "de Bruijn sequence cannot be generate"
+                    
                 sequences, flags, current = trim_seq(idx, n, sequences, flags, alphabet)
             
             sequences = find_next(sequences, current, alphabet)
